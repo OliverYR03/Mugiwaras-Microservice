@@ -24,7 +24,6 @@ export class PlatosService {
     return this.httpClient.post(`${this.baseURL}`, platos);
   }
 
-  
   actualizarPlato(id:number, platos:Platos) : Observable<Object>{
     return this.httpClient.put(`${this.baseURL}/${id}`,platos);
   }

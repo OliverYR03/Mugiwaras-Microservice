@@ -44,7 +44,7 @@ public class ClientesController {
 		return ResponseEntity.ok(clientes);
 	}
 	
-	@PostMapping("nuevo")
+	@PostMapping("listar")
 	public Clientes createCliente(@Validated @RequestBody Clientes clientes) {
 		return clientesRepository.save(clientes);
 	}

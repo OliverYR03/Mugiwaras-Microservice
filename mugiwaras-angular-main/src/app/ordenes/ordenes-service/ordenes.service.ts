@@ -20,8 +20,20 @@ export class OrdenesService {
   }
 
   //para crear un nuevo empleado
-  registrarOrdenes(ordenes:Ordenes): Observable<object>{
+  registrarOrden(ordenes:Ordenes): Observable<object>{
     return this.httpClient.post(`${this.baseURL}`, ordenes);
-
   }
+
+  actualizarOrden(id:number, ordenes:Ordenes) : Observable<Object>{
+    return this.httpClient.put(`${this.baseURL}/${id}`,ordenes);
+  }
+
+  obtenerOrdenPorId(id:number):Observable<Ordenes>{
+    return this.httpClient.get<Ordenes>(`${this.baseURL}/${id}`);
+  }
+
+  eliminarOrden(id:number): Observable<Object>{
+    return this.httpClient.delete(`${this.baseURL}/${id}`);
+  }
+  
 }

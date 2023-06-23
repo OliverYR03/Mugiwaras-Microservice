@@ -24,4 +24,17 @@ export class ClientesService {
     return this.httpClient.post(`${this.baseURL}`, clientes);
 
   }
+
+  actualizarCliente(id:number, clientes:Clientes) : Observable<Object>{
+    return this.httpClient.put(`${this.baseURL}/${id}`,clientes);
+  }
+
+  obtenerClientePorId(id:number):Observable<Clientes>{
+    return this.httpClient.get<Clientes>(`${this.baseURL}/${id}`);
+  }
+
+  eliminarCliente(id:number): Observable<Object>{
+    return this.httpClient.delete(`${this.baseURL}/${id}`);
+  }
+
 }

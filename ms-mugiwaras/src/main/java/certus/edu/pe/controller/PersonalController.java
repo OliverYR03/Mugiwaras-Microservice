@@ -44,7 +44,7 @@ public class PersonalController {
 		return ResponseEntity.ok(personal);
 	}
 	
-	@PostMapping("nuevo")
+	@PostMapping("listar")
 	public Personal createPersonal(@Validated @RequestBody Personal personal) {
 		return personalRepository.save(personal);
 	}

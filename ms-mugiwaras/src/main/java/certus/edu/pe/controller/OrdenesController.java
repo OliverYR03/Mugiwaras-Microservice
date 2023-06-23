@@ -42,7 +42,7 @@ public class OrdenesController {
 		return ResponseEntity.ok(ordenes);
 	}
 	
-	@PostMapping("nuevo")
+	@PostMapping("ordenes")
 	public Ordenes createOrden(@Validated @RequestBody Ordenes ordenes) {
 		return ordenesRepository.save(ordenes);
 	}

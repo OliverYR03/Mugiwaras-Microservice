@@ -1,17 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { Ordenes } from '../ordenes-service/ordenes';
-import { ActivatedRoute,Router } from '@angular/router';
 import { OrdenesService } from '../ordenes-service/ordenes.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-registrar-orden',
-  templateUrl: './registrar-orden.component.html',
-  styleUrls: ['./registrar-orden.component.css']
+  selector: 'app-editar-orden',
+  templateUrl: './editar-orden.component.html',
+  styleUrls: ['./editar-orden.component.css']
 })
-export class RegistrarOrdenComponent {
+export class EditarOrdenComponent implements OnInit{
 
   id:number;
-  ordenes: Ordenes = new Ordenes();
+  ordenes:Ordenes = new Ordenes();
   constructor(private route:ActivatedRoute, private ordenesServicio: OrdenesService,private router:Router){}
 
   ngOnInit(): void {
@@ -19,8 +19,8 @@ export class RegistrarOrdenComponent {
     this.ordenesServicio.obtenerOrdenPorId(this.id).subscribe(dato=> {
       this.ordenes = dato;
     },error => console.log(error));
+      
   }
-
 
   irALaListaDeOrden(){
     this.router.navigate(['/ordenes']);
@@ -31,5 +31,7 @@ export class RegistrarOrdenComponent {
       this.irALaListaDeOrden();
     },error => console.log(error));
   }
+
+
 
 }

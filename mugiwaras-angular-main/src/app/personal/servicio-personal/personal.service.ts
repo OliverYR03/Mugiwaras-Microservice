@@ -21,7 +21,18 @@ export class PersonalService {
   //para crear un nuevo empleado
   registrarPersonal(personal:Personal): Observable<object>{
     return this.httpClient.post(`${this.baseURL}`, personal);
+  }
 
+  actualizarPersonal(id:number, platos:Personal) : Observable<Object>{
+    return this.httpClient.put(`${this.baseURL}/${id}`,platos);
+  }
+
+  obtenerPersonalPorId(id:number):Observable<Personal>{
+    return this.httpClient.get<Personal>(`${this.baseURL}/${id}`);
+  }
+
+  eliminarPersonal(id:number): Observable<Object>{
+    return this.httpClient.delete(`${this.baseURL}/${id}`);
   }
   
 }

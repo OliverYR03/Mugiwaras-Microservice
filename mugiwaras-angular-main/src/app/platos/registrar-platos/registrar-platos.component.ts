@@ -26,9 +26,6 @@ export class RegistrarPlatosComponent implements OnInit{
     this.router.navigate(['actualizar-platos', idplato]);
   }
 
-
-
-
   guardarPlato(){
     this.platosServicio.registrarPlatos(this.platos).subscribe(dato =>{ 
       console.log(dato);

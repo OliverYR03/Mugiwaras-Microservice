@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {Observable} from 'rxjs';
 import { Clientes } from './clientes';
+import { Ordenes } from 'src/app/ordenes/ordenes-service/ordenes';
 
 @Injectable({
   providedIn: 'root'
@@ -37,4 +38,7 @@ export class ClientesService {
     return this.httpClient.delete(`${this.baseURL}/${id}`);
   }
 
+  obtenerListaDeOrdenes():Observable<Ordenes[]>{
+    return this.httpClient.get<Ordenes[]>(`${this.baseURL}`);
+  }
 }

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Ordenes } from '../ordenes-service/ordenes';
 import { ActivatedRoute,Router } from '@angular/router';
 import { OrdenesService } from '../ordenes-service/ordenes.service';
+import { ClientesService } from 'src/app/clientes/clientes-service/clientes.service';
+import { Clientes } from 'src/app/clientes/clientes-service/clientes';
 
 @Component({
   selector: 'app-registrar-orden',
@@ -12,9 +14,11 @@ export class RegistrarOrdenComponent {
 
   id:number;
   ordenes: Ordenes = new Ordenes();
-  constructor(private route:ActivatedRoute, private ordenesServicio: OrdenesService,private router:Router){}
+  clientes: Clientes[];
+  constructor(private route:ActivatedRoute, private ordenesServicio: OrdenesService, private clientesServicio: ClientesService,private router:Router){}
 
   ngOnInit(): void {
+    this.obtenerClientes;
     this.id = this.route.snapshot.params['id'];
     this.ordenesServicio.obtenerOrdenPorId(this.id).subscribe(dato=> {
       this.ordenes = dato;
@@ -24,6 +28,12 @@ export class RegistrarOrdenComponent {
 
   irALaListaDeOrden(){
     this.router.navigate(['/ordenes']);
+  }
+
+  private obtenerClientes(){
+    this.clientesServicio.obtenerListaDeClientes().subscribe(dato => {
+      this.clientes = dato;
+    });
   }
 
   onSubmit(){

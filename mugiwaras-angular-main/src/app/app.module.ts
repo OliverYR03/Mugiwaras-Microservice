@@ -27,6 +27,7 @@ import { EditarOrdenComponent } from './ordenes/editar-orden/editar-orden.compon
 import { EditarClientesComponent } from './clientes/editar-clientes/editar-clientes.component';
 import { EditarOpinionComponent } from './opiniones/editar-opinion/editar-opinion.component';
 import { EditarPersonalComponent } from './personal/editar-personal/editar-personal.component';
+import { CalendarioComponent } from './calendario/calendario.component';
 
 
 @NgModule({
@@ -46,7 +47,8 @@ import { EditarPersonalComponent } from './personal/editar-personal/editar-perso
     EditarOrdenComponent,
     EditarClientesComponent,
     EditarOpinionComponent,
-    EditarPersonalComponent
+    EditarPersonalComponent,
+    CalendarioComponent
   ],
   imports: [
     BrowserModule,

@@ -3,15 +3,10 @@
     <form (ngSubmit)="onSubmit()">
         <div class="form-group">
             <label >Cliente</label>
-            <input type="text" class="form-control" [(ngModel)] = "ordenes.clientes" name="nombre"
-            class="form-control"
-            id = "nombre"
-            name = "nombre"
-            required
-            minlength="3"
-            maxlength="20"
-            placeholder="Digite su Nombre "
-            #nombre = "ngModel">
+            <input type="text" class="form-control" [(ngModel)] = "ordenes.clientes" name="nombre">
+            <selecet name="clientes" id="clientes" formControlName="pais" class="form-control" >
+                <option value="clientes.idcliente" *ngFor="let clientes of clientes">{{clientes.nombre}}</option>
+            </selecet>
         </div>
         <div class="form-group">
             <label >Fecha </label>
@@ -49,5 +44,5 @@
 
         <button class="btn btn-success">Enviar</button>
        <a class="btn btn-danger" href="ordenes" type="button"> <i class="fa fa-arrow-circle-left"> Cancelar</i></a>
-    </form>
+    </form> 
 </div>

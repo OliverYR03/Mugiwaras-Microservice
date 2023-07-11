@@ -17,6 +17,7 @@ export class EditarClientesComponent implements OnInit{
     this.id = this.route.snapshot.params['id'];
     this.clientesServicio.obtenerClientePorId(this.id).subscribe(dato=> {
       this.clientes = dato;
+      
     },error => console.log(error));
       
   }

@@ -12,6 +12,7 @@ export class OrdenesService {
   //Url para obtener el listado de personal
   private baseURL = "http://localhost:8085/ms-mugiwaras/api/ordenes/listar";
   
+  
   constructor(private httpClient : HttpClient) {}
 
   //Para obtener la lista de personal

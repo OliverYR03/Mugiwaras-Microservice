@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Ordenes } from '../ordenes-service/ordenes';
 import { OrdenesService } from '../ordenes-service/ordenes.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Clientes } from 'src/app/clientes/clientes-service/clientes';
 
 @Component({
   selector: 'app-editar-orden',
@@ -31,7 +32,5 @@ export class EditarOrdenComponent implements OnInit{
       this.irALaListaDeOrden();
     },error => console.log(error));
   }
-
-
-
 }
+

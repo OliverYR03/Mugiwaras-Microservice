@@ -9,16 +9,25 @@ import { Router } from '@angular/router';
   styleUrls: ['./listar-platos.component.css']
 })
 export class ListarPlatosComponent implements OnInit{
-
+  reg: any = 0;
   platos: Platos[];
-
+  sumar: boolean = true;
   constructor(private platosServicio:PlatosService, private router:Router){
-
+    console.log(this.reg)
   }
 
   ngOnInit(): void {
     this.obtenerPlatos();
   }
+
+  mostrar(){
+    if(this.sumar){
+      this.reg= this.reg +1;
+    }else{
+      this.reg = this.reg -1;
+    }
+    this.sumar = !this.sumar;
+  } 
 
   actualizarPlato(id:number){
     this.router.navigate(['platos/editar', id]);
